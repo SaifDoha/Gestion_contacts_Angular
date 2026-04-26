@@ -1,0 +1,40 @@
+<!-- liste-contacts.component.html -->
+
+<div class="liste-wrapper">
+  <h2>Liste des Contacts ({{ contacts.length }})</h2>
+
+  <!-- ── Exercice 4 : Informations lifecycle ──────────────────────────── -->
+  <div class="lifecycle-info">
+    <small>Liste chargée à : <strong>{{ dateChargement }}</strong></small>
+    <small *ngIf="nombreAjouts > 0">
+      &nbsp;|&nbsp; {{ nombreAjouts }} contact(s) ajouté(s) depuis le chargement
+    </small>
+  </div>
+
+  <!-- ── Exercice 5-B : Champ de recherche ────────────────────────────── -->
+  <input
+    [(ngModel)]="recherche"
+    placeholder="Rechercher un contact..."
+    class="search-input"
+  />
+  <p class="result-count">{{ contactsFiltres.length }} résultat(s)</p>
+
+  <!-- Message liste vide -->
+  <p class="empty-msg" *ngIf="contacts.length === 0">
+    Aucun contact pour le moment.
+  </p>
+
+  <!-- Liste des contacts filtrés -->
+  <ul *ngIf="contacts.length > 0">
+    <li *ngFor="let c of contactsFiltres; let i = index">
+      <div class="contact-info">
+        <strong>{{ c.nom }}</strong> <br>
+        <span class="email">{{ c.email }}</span>
+        <small *ngIf="c.telephone" class="tel">{{ c.telephone }}</small>
+      </div>
+      <!-- ── Exercice 5-A : Bouton supprimer ─────────────────────────── -->
+      <button class="btn-delete" (click)="supprimer(i)">supprimer</button>
+      <br>
+    </li>
+  </ul>
+</div>

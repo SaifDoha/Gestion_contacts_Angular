@@ -1,0 +1,85 @@
+<div>
+<h2>{{titre}}</h2>
+<p>Version: {{version}}</p>
+
+  <section>
+    <h3>Interpolation</h3>
+
+    <p>Bonjour {{ prenom }} !</p>
+    <p>Note sur 20 : {{ note }} / 20</p>
+    <p>Prénom en majuscules : {{ prenom.toUpperCase() }}</p>
+    <p>Réussite : {{ note >= 10 ? '✅ Admis' : '❌ Refusé' }}</p>
+    <p>Nombre de notes : {{ notes.length }}</p>
+    <p>Date : {{ dateAujourdhui }}</p>
+  </section>
+
+  <section>
+        <h3>Property Binding</h3>
+        <!-- Lier src d'une image -->
+        <img [src]="imageUrl" [alt]="'Photo de ' + prenom" width="200">
+        <!-- Bouton dynamiquement actif/inactif -->
+        <button [disabled]="!boutonActif">Bouton contrôlé</button>
+        <!-- Pour tester : changez boutonActif à true dans le .ts -->
+        <!-- Style dynamique -->
+        <p [style.fontSize.px]="tailleTexte">
+        Ce texte a une taille dynamique de {{ tailleTexte }}px
+        </p>
+        <!-- Classe CSS dynamique -->
+        <div [class]="classeCSS">
+        Bloc avec classe CSS dynamique : {{ classeCSS }}
+        </div>
+    </section>
+    <!-- Partie C : Event Binding -->
+    <section>
+        <h3>Event Binding</h3>
+        <!-- Compteur avec 3 boutons -->
+        <button (click)="decrementer()">-</button>
+        <span> {{ compteur }} </span>
+        <button (click)="incrementer()">+</button>
+        <button (click)="reinitialiser()">Reset</button>
+        <!-- Passer un paramètre à la méthode -->
+        <br><br>
+        <button (click)="changerCouleur('rouge')" [class]="couleurBouton">Rouge</button>
+        <button (click)="changerCouleur('bleu')" [class]="couleurBouton">Bleu</button>
+        <button (click)="changerCouleur('vert')" [class]="couleurBouton">Vert</button>
+        <p>Couleur choisie : {{ couleurBouton }}</p>
+        <!-- Récupérer l'événement $event -->
+        <input (keyup)="onFrappe($event)" placeholder="Tapez quelque chose...">
+        <p>Vous écrivez : {{ texteInput }}</p>
+    </section>
+
+    <section>
+        <h3>Two-Way Binding — Aperçu en temps réel</h3>
+        <input [(ngModel)]="nom" placeholder="Nom complet">
+        <input [(ngModel)]="email" type="email" placeholder="Adresse email">
+        <input [(ngModel)]="telephone" placeholder="Téléphone">
+        <input [(ngModel)]="age" type="number" placeholder="Âge">
+        <!-- Aperçu en temps réel -->
+        <div>
+        <h4>Aperçu :</h4>
+        <p><strong>{{ nom }}</strong></p>
+        <p>{{ email }} | {{ telephone }}</p>
+        <p>Age : {{ age }} ans</p>
+        <!-- Bonus : afficher uniquement si nom rempli -->
+        <p *ngIf="nom.length > 0">
+        Bonjour {{ nom }}, votre saisie est en cours !
+        </p>
+        </div>
+    </section>
+    <!-- formulaire-contact.component.html -->
+    <div>
+    <h2>Ajouter un Contact</h2>
+    <input [(ngModel)]="nom" placeholder="Nom complet *">
+    <input [(ngModel)]="email" type="email" placeholder="Email *">
+    <input [(ngModel)]="telephone" placeholder="Téléphone">
+    <!-- Aperçu conditionnel -->
+    <div *ngIf="nom">
+    <strong>Aperçu :</strong> {{ nom }} — {{ email }}
+    </div>
+    <!-- Bouton déclenche sauvegarder() -->
+    <button (click)="sauvegarder()">
+     Ajouter le contact
+    </button>
+    </div>
+    
+</div>

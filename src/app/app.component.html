@@ -1,0 +1,29 @@
+<!-- app.component.html -->
+
+<!-- ── Header ──────────────────────────────────────────────────────────────── -->
+<header class="app-header">
+  <div class="header-inner">
+    <h1>Gestionnaire de Contacts</h1>
+    <span class="statut-badge">{{ messageStatut }}</span>
+  </div>
+</header>
+
+<!-- ── Corps principal ──────────────────────────────────────────────────────── -->
+<main class="app-main">
+
+  <!-- Colonne gauche : Formulaire (Exercices 1–3) -->
+  <section class="col-form">
+    <app-formulaire-contact
+      (contactSauvegarde)="ajouterContact($event)">
+    </app-formulaire-contact>
+  </section>
+
+  <!-- Colonne droite : Liste (Exercices 3–5) -->
+  <section class="col-liste">
+    <app-liste-contacts
+      [contacts]="mesContacts"
+      (contactSupprime)="supprimerContact($event)">
+    </app-liste-contacts>
+  </section>
+
+</main>
