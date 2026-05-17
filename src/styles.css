@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 /* You can add global styles to this file, and also import other style files */
+=======
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 20px; }
+.active { border: 2px solid #4CAF50; }
+.hovered { background: #FFF9C4; }
+button { padding: 6px 12px; margin: 4px; cursor: pointer; }
+input, select { padding: 6px; margin: 4px; }
+h1, h2, h3 { color: #333; }
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)

@@ -1,12 +1,22 @@
+<<<<<<< HEAD
 // app.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormulaireContactComponent } from './formulaire-contact/formulaire-contact';
 import { ListeContactsComponent } from './liste-contacts/liste-contacts';
 import { Contact } from './contact.interface';
+=======
+import { Component, OnInit } from '@angular/core';
+import { ContactService } from './contact.service';
+import { Contact } from './contact.interface';
+import { ListeContactsComponent } from './liste-contacts/liste-contacts.component';
+import { FormulaireContactComponent } from './formulaire-contact/formulaire-contact.component';
+import { StatsContactsComponent } from './stats-contacts/stats-contacts.component';
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
 
 @Component({
   selector: 'app-root',
   standalone: true,
+<<<<<<< HEAD
   imports: [FormulaireContactComponent, ListeContactsComponent],
   templateUrl: './app.component.html',
 })
@@ -52,3 +62,24 @@ ngOnInit(): void {
     return `${this.mesContacts.length} contacts`;
   }
 }
+=======
+  imports: [ListeContactsComponent, FormulaireContactComponent, StatsContactsComponent],
+  template: `
+    <h1>Gestionnaire de Contacts Angular 20</h1>
+    <app-stats-contacts></app-stats-contacts>
+    <app-formulaire-contact (contactAjoute)="onContactAjoute($event)"></app-formulaire-contact>
+    <app-liste-contacts></app-liste-contacts>
+  `
+})
+export class AppComponent implements OnInit {
+  constructor(private contactService: ContactService) {}
+
+  ngOnInit(): void {
+    console.log('App initialisee. Contacts :', this.contactService.getAll().length);
+  }
+
+  onContactAjoute(contact: Contact): void {
+    this.contactService.ajouter(contact);
+  }
+}
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)

@@ -1,0 +1,12 @@
+.contact-actif { background: #E8F5E9; border-left: 4px solid #4CAF50; }
+.contact-inactif { background: #FFEBEE; border-left: 4px solid #F44336; color: #9E9E9E; }
+.top-score { font-weight: bold; }
+.score-excellent { color: #1565C0; }
+.score-passable { color: #E65100; }
+.score-echec { color: #B71C1C; text-decoration: line-through; }
+.premier-item { border-top: 2px solid #673AB7; }
+li { padding: 8px; margin: 4px 0; list-style: none; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+ul { padding: 0; }
+button { margin-left: 4px; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+td { padding: 6px 12px; }

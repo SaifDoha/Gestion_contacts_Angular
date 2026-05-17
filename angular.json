@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+<<<<<<< HEAD
   "cli": {
     "packageManager": "npm",
     "analytics": "e0ab52e5-412c-408a-aa72-82c249ede74b"
@@ -8,6 +9,11 @@
   "newProjectRoot": "projects",
   "projects": {
     "gestion-contacts": {
+=======
+  "newProjectRoot": "projects",
+  "projects": {
+    "gestion-contacts-s3": {
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,7 +23,14 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+<<<<<<< HEAD
             "browser": "src/main.ts",
+=======
+            "outputPath": "dist/gestion-contacts-s3",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -25,9 +38,14 @@
                 "input": "public"
               }
             ],
+<<<<<<< HEAD
             "styles": [
               "src/styles.css"
             ]
+=======
+            "styles": ["src/styles.css"],
+            "scripts": []
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
           },
           "configurations": {
             "production": {
@@ -39,8 +57,13 @@
                 },
                 {
                   "type": "anyComponentStyle",
+<<<<<<< HEAD
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
+=======
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
                 }
               ],
               "outputHashing": "all"
@@ -57,6 +80,7 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "buildTarget": "gestion-contacts:build:production"
             },
             "development": {
@@ -70,5 +94,20 @@
         }
       }
     }
+=======
+              "buildTarget": "gestion-contacts-s3:build:production"
+            },
+            "development": {
+              "buildTarget": "gestion-contacts-s3:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "bed5638e-b35c-4c5c-99a4-63de75cfdefb"
+>>>>>>> 782a5ea (TP3 - Directives, Pipes et Services)
   }
 }
